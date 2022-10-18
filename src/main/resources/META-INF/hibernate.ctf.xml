@@ -18,6 +18,7 @@ and open the template in the editor.
              <property name = "format_sql">true</property>
             <mapping class="com.mycompany.entities.User"/> 
              <mapping class="com.mycompany.entities.Story"/> 
+              <mapping class="com.mycompany.entities.Liked"/> 
 
          </session-factory>
    

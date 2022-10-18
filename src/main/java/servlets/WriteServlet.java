@@ -4,6 +4,8 @@
  */
 package servlets;
 
+
+import com.mycompany.entities.Liked;
 import com.mycompany.entities.Story;
 import com.mycompany.entities.User;
 import com.mycompany.story.FactoryProvider;
@@ -35,9 +37,15 @@ public class WriteServlet extends HttpServlet {
             System.out.println(text);
            
                HttpSession hs = request.getSession();
-             if (text.isEmpty() || storyname.isEmpty()) {
-                out.println("Text Story is blank!!!!!!");
+             if (storyname.isEmpty() || text.isEmpty()) {
+                 if (storyname.isEmpty()) {
+                      out.println(" Story Name is blank!!!!!!");
+                hs.setAttribute("message", "Story Name is empty. Please create a name !!!");
+                 }
+                 else{
+                      out.println("Text Story is blank!!!!!!");
                 hs.setAttribute("message", "Story is empty. Please create a new !!!");
+                 }  
                  //System.out.println("-----------"+hs.getAttribute("userid"));
                  response.sendRedirect("write.jsp");
                 return;
@@ -46,13 +54,18 @@ public class WriteServlet extends HttpServlet {
                  // text=text.replaceAll("</p>", "");
                    //text=text.replaceAll("<p>", "");
                  int userid=(int) hs.getAttribute("userid");
-                  Story story=  new Story(userid, 0, storyname, text, 0);
+                 Story story=  new Story(userid, 0, storyname, text, 0);
                
                  System.out.println(story);
             Session hibSession= FactoryProvider.getFactory().openSession();
             Transaction transaction = hibSession.beginTransaction();
             int storyid = (int) hibSession.save(story);
-                 System.out.println("========== ==" + storyid);
+             System.out.println(" WriteServlet :- story table :- story id ========== " + storyid);
+                 Liked likedObj  = new Liked(storyid, userid, "Like");
+                 int likeid = (int) hibSession.save(likedObj);
+            //insert likes column like table 
+            
+      System.out.println(" WriteServlet :- like table :- story id ========== " + likeid);
             transaction.commit();
             hibSession.close();
             

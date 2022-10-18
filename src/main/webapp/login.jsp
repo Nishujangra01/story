@@ -27,12 +27,12 @@
                                   <%@include file="component/message.jsp" %>
                                 <form action="LoginServlet" method="post">
                                 <div class="form-group">
-                                  <label for="username">User Name</label>
+                                    <label for="username"><h4>User Name</h4></label>
                                   <input  name="username" type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username">
                                  
                                 </div>
                                 <div class="form-group">
-                                  <label for="password">Password</label>
+                                    <label for="password"><h4>Password</h4></label>
                                   <input  name="password" type="password" class="form-control" id="password" placeholder="Password">
                                 </div>
                                     <a href="register.jsp"> If not register click here!</a>

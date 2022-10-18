@@ -4,6 +4,7 @@
  */
 package dao;
 
+import com.mycompany.entities.Liked;
 import com.mycompany.entities.Story;
 import com.mycompany.entities.User;
 import java.util.ArrayList;
