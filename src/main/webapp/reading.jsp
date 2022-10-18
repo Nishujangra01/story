@@ -167,7 +167,7 @@ visibility: hidden;
     </head>
     <body>
       <%@include file="component/navbar.jsp" %>
-        
+       
         <div class="container">
                   <div class="row mt-4">
                  <div class="header">
@@ -193,6 +193,9 @@ visibility: hidden;
                                            storytestname=storytestname.replaceAll("'", "\\\\\'");
                                            System.out.println("Reading Story :- "+storytest);
                                           System.out.println("Reading Story name :- "+storytestname);
+                                          
+                                          // code to increase views by 1
+                                          new NoOfDownlaods().increaseViews(storytestid);
                                            %>
                           <button  onclick="myDownload('<%=storytestname%>','<%=storytest%>','<%=storytestid%>')" class="btn" style="width:80%"> Download</button>
                       </div>

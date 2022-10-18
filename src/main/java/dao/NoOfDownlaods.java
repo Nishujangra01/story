@@ -50,16 +50,16 @@ public class NoOfDownlaods {
            
       
     }
-      public  void increaseViews (String stdid) {
+      public  void increaseViews (int stdid) {
            System.out.println(" NoOfDownlaods - increaseViews() Java class :- storyid : "+stdid);
-           int storyid = Integer.parseInt(stdid);
+         
           try {
               Session hibSession= FactoryProvider.getFactory().openSession();
               hibSession.beginTransaction();
               System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
          String query = "UPDATE Story SET views =views +1 WHERE storyid =:s";
          Query qu =hibSession.createQuery(query);
-            qu.setParameter("s", storyid);
+            qu.setParameter("s", stdid);
             int row=qu.executeUpdate();
    
               //System.out.println("story is downlaod null");
