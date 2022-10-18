@@ -1,0 +1,32 @@
+
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+
+  text-decoration: none;
+  font-size: 10px;
+  width: 100%; /* Four links of equal widths */
+  text-align: left ;
+}
+
+.navbar a:hover {
+  background-color: purple;
+  
+}
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+   
+    text-align: left;
+  }
+}
+
+
