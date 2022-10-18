@@ -10,12 +10,13 @@ public class SetLikes {
     
      public void setLiked(Liked likedObj ,String likestoryid) {
        System.out.println(" SetLikes - setLiked() Java class :-  "+likedObj);
+       System.out.println(" SetLikes - setLiked() Java class story id :-  "+likestoryid);
           int storyid = Integer.parseInt(likestoryid);
           try {
               Session hibSession= FactoryProvider.getFactory().openSession();
               hibSession.beginTransaction();
               System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-         String query = "UPDATE Liked SET likes =: l WHERE storyid =:s and user=:u";
+         String query = "UPDATE Liked SET likes =: l WHERE storyid =:s and userid=:u";
          Query qu =hibSession.createQuery(query);
             qu.setParameter("u", likedObj.getUserid());
             qu.setParameter("l", likedObj.getLikes());
