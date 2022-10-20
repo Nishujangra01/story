@@ -16,7 +16,7 @@ public class FactoryProvider {
     public static SessionFactory getFactory(){
             try {
                if (factory==null) {
-                     factory= new Configuration().configure("\\META-INF\\hibernate.ctf.xml").buildSessionFactory();
+                     factory= new Configuration().configure("\\META-INF\\hibernate.cfg.xml").buildSessionFactory();
                    
                 }
             
